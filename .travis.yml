@@ -1,0 +1,13 @@
+# specifying sudo user is required
+sudo: required
+# to install docker on travis
+services: 
+  - docker
+
+# command to run before install
+before_install:
+  - docker build -t react-app/first -f Dockerfile.dev .
+
+# scripts to run
+script: 
+  - docker run react-react-app/first npm run test -- --coverage
